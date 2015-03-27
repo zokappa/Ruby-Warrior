@@ -1,0 +1,33 @@
+class Player
+  
+  def play_turn(warrior)
+    spaceleft=warrior.feel:backward
+    
+    if cuentarescatados 
+      if spaceleft.captive?  
+        warrior.rescue! :backward
+        @rescatados=1
+        elsif spaceleft.wall?
+        warrior.rest!
+      else
+        warrior.walk! :backward
+      end
+    end
+  
+    
+  end
+  
+  private
+    def cuentarescatados
+      if @rescatados.nil?
+        @rescatados=0
+      end
+      if @rescatados > 0
+        return true
+        else
+          return false
+      end    
+    end
+
+  
+end
